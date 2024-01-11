@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Video</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha384-lfmq5GxT8CHMOgiqI5vKs7EN5FHC5a/7m1cOVxDU+XZ+8FfMcXbwMJsPY2NEaNMl" crossorigin="anonymous">
+    <style>
+        body {
+            color: white;
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #888;
+            text-align: center;
+        }
+
+        header.feature-box.top {
+            background-color: #666;
+            height: 25px;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        header.feature-box.top .logo {
+            display: flex;
+            align-items: center;
+            font-size: 24px;
+        }
+
+        header.feature-box.top .logo i {
+            margin-right: 10px;
+            font-size: 32px;
+            color: #3498db;
+        }
+
+        header.feature-box.top nav a {
+            text-decoration: none;
+            color: #fff;
+            margin-left: 20px;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        header.feature-box.top nav a.active {
+            font-weight: bold;
+            color: #3498db;
+        }
+
+        header.feature-box.second {
+            background-color: #888;
+            height: 50px;
+            text-align: center;
+            margin-top: -25px;
+            line-height: 50px;
+        }
+
+        header.feature-box.second h1 {
+            font-size: 24px;
+            color: #fff;
+        }
+
+        .features {
+            background-color: #222;
+            width: 900px;
+            height: 700px;
+            border-radius: 35px;
+            object-fit: contain;
+            margin: 20px auto;
+        }
+
+        section.col-sm {
+            background-color: #222;
+            width: 1000px;
+            height: 650px;
+            border-radius: 35px;
+            object-fit: contain;
+            margin: 40px auto;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+            border-radius: 35px;
+            object-fit: cover;
+        }
+
+        .new {
+            color: black;
+            margin: 0;
+            padding: 10px;
+            background-color: #666;
+            text-align: center;
+            border-radius:  50px 50px 0 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-direction: column;
+        }
+
+        .new form {
+            align-content: center;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .btnContainer {
+            display: flex;
+            justify-content: space-between;
+            margin: 10px;
+
+        }
+
+        .btnSubmit,
+        .btnCustom {
+            background-color: black;
+            color: #fff;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background-color 0.3s ease-in-out;
+            flex: 1;
+            margin: 0 5px;
+            border-radius: 30px;
+        }
+
+        .btnSubmit:hover,
+        .btnCustom:hover {
+            background-color: #222;
+        }
+
+        .custom-file-input {
+            display: none;
+        }
+
+        .custom-file-label {
+            background-color: #f39c12;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .custom-file-label:hover {
+            background-color: #222;
+        }
+
+        .radio-group {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        .radio-group label {
+            color: #fff;
+            margin: 0 10px;
+            font-size: 16px;
+
+        }
+
+        .radio-group input {
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+<header class="feature-box top">
+    <div class="logo">
+        <i class="fas fa-robot"></i>
+        AI-Transit
+    </div>
+    <nav>
+        <a href="/FrontPage" class="active"><i class="fas fa-video"></i> Video</a>
+        <a href="/webcam"><i class="fas fa-video"></i> Live Webcam</a>
+    </nav>
+</header>
+
+<header class="feature-box second">
+    <h1><i class="fas fa-play-circle"></i> <strong>Video Detecting</strong></h1>
+</header>
+
+<section class="col-sm">
+    <img src="{{ url_for('video') }}" alt="video 1">
+</section>
+
+<section>
+    <div class="new">
+        <form method='POST' enctype="multipart/form-data">
+            {{form.hidden_tag()}}
+            <h1><i class="fas fa-heart"></i> <strong>Experience the Magic</strong></h1>
+            <p>Upload a video and see the magic happen!</p>
+
+            <label for="file-upload" class="custom-file-label"><i class="fas fa-file-upload"></i> Choose a File</label>
+            <input type="file" id="file-upload" name="file" class="custom-file-input">
+
+            <div class="btnContainer">
+                <button type="submit" name="favorite" value="x" class="btnSubmit">
+                    <i class="fas fa-check-circle"></i> Submit
+                </button>
+
+                <button type="button" class="btnCustom" onclick="window.location.href='/'">
+                    <i class="fas fa-times-circle"></i> Cancel
+                </button>
+            </div>
+
+
+
+        </form>
+    </div>
+</section>
+
+</body>
+</html>

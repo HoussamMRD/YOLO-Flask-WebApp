@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transport Detection</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+     body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('https://static.vecteezy.com/system/resources/previews/002/097/942/large_2x/creative-minimal-geometric-with-dynamic-shapes-technology-abstract-background-wallpaper-free-vector.jpg'); /* Replace with your background image URL */
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+        }
+
+        header {
+            background-color: rgba(26, 26, 26, 0.3); /* Adjust the transparency and color as needed */
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            display: flex;
+            align-items: center;
+            color: #ffd700; /* Change to your desired text color */
+        }
+
+        .logo i {
+            margin-right: 10px;
+        }
+
+        nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+            transition: color 0.3s ease-in-out;
+        }
+
+        nav a:hover {
+            color: #ffd700; /* Change to your desired hover color */
+        }
+
+        section.hero {
+            background: url('https://img.freepik.com/premium-vector/grey-white-abstract-technology-background-with-various-technology-elements-hi-tech-communication_42421-964.jpg?w=826'); /* Replace with your hero image URL */
+            background-size: cover;
+            background-position: center;
+            text-align: center;
+            padding: 100px 20px;
+            color: #fff;
+        }
+
+        section.hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        section.details {
+            text-align: center;
+            padding: 50px 20px;
+            background-color: rgba(000); /* Adjust the transparency and color as needed */
+            color: #fff;
+
+        }
+
+        section.details h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+
+
+        section.features {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+            padding: 50px 20px;
+            background: #fff;
+        }
+
+        .feature {
+            text-align: center;
+            margin: 20px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .feature:hover {
+            transform: scale(1.05);
+        }
+
+        .feature img {
+            border-radius: 10px;
+            width: 100%;
+            max-width: 300px;
+            margin-bottom: 20px;
+        }
+
+        .feature h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .feature p {
+            font-size: 18px;
+            color: #666;
+        }
+
+        .main {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 50px 20px;
+        }
+
+        .subpart {
+            flex: 1;
+            text-align: center;
+            margin: 20px;
+            border-radius: 15px;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            background-color: #fff;
+        }
+
+        .subpart img {
+            border-radius: 8px;
+            width: 100%;
+            max-width: 600px;
+            margin-bottom: 20px;
+        }
+
+      body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        .contactpage {
+            text-align: center;
+            padding: 50px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-contact {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo i {
+            margin-right: 10px;
+            color: #1a1a1a; /* Adjust the color to your preference */
+        }
+
+        .social-icons a {
+            color: #1a1a1a; /* Adjust the color to your preference */
+            margin: 0 10px;
+            font-size: 18px;
+            text-decoration: none;
+            transition: color 0.3s ease-in-out;
+        }
+
+        .social-icons a:hover {
+            color: #ffd700; /* Change to your desired hover color */
+        }
+
+        h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        p {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        form {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        input, textarea {
+            width: 100%;
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        button {
+            font-size: 18px;
+            height: 42px;
+            width: 100%;
+            background-color: #1a1a1a;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        button:hover {
+            background-color: #ffd700; /* Change to your desired hover color */
+        }
+
+        footer {
+            background-color: #1a1a1a;
+            text-align: center;
+            padding: 20px;
+            color: white;
+        }
+
+        footer p {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <i class="fas fa-robot"></i>
+             AI-Transit
+        </div>
+        <nav>
+            <a href="/FrontPage" class="active"><i class="fas fa-video"></i> Video</a>
+            <a href="/webcam"><i class="fas fa-video"></i> Live Webcam</a>
+            <a href="/login"  style="color: yellow;"    ><i class="fas fa-sign-in-alt"></i> Login</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Discover the Future of Transport Detection with AI</h1>
+    </section>
+
+    <section class="details">
+        <h1>Our Services</h1>
+    </section>
+
+    <section class="features">
+        <div class="feature">
+            <img src="../static/images/10.png" alt="YOLOv8 Results 1">
+            <h3>Detecting Live Stream </h3>
+            <p>Description about the result and its significance.</p>
+        </div>
+        <div class="feature">
+            <img src="../static/images/2.jpg" alt="YOLOv8 Results 2">
+            <h3>Detecting-Counting Vehicules</h3>
+            <p>Description about the result and its significance.</p>
+        </div>
+        <div class="feature">
+            <img src="../static/images/3.jpg" alt="YOLOv8 Results 3">
+            <h3>Detecting-Counting Passengers</h3>
+            <p>Description about the result and its significance.</p>
+        </div>
+    </section>
+
+    <div class="main">
+        <div class="subpart">
+            <img src="../static/images/1.png" alt="Image Missing">
+            <h2>Our Tools</h2>
+        </div>
+        <div class="subpart">
+            <h2>Object Detection using YOLOv8</h2>
+            <p>Object Detection using YOLOv8, or You Only Look Once version 8, represents a state-of-the-art approach in computer vision for real-time object detection tasks. YOLOv8 is an evolution of its predecessors, incorporating improvements in both accuracy and speed.</p>
+            <p>TOne of its key strengths lies in its ability to process an entire image in a single forward pass through the neural network, enabling real-time detection of multiple objects simultaneously. YOLOv8 achieves this efficiency by dividing the image into a grid and predicting bounding boxes, class probabilities, and confidence scores for each grid cell. With a focus on flexibility, </p>
+            <p>YOLOv8 supports various model sizes, allowing users to balance trade-offs between speed and accuracy based on their specific requirements. Its robust performance has made it a popular choice in applications such as autonomous vehicles, surveillance systems, and object recognition in diverse environments. As the field of object detection continues to advance, YOLOv8 stands out as a powerful and versatile tool for computer vision tasks.</p>
+        </div>
+    </div>
+ <div class="contactpage">
+        <!-- Navbar for the Contact Us section -->
+        <div class="navbar-contact">
+            <div class="logo">
+                <i class="fas fa-robot"></i>
+                AI-Transit
+            </div>
+            <div class="social-icons">
+                <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+
+        <h1>Contact Us</h1>
+        <p>If you have any questions or need assistance, feel free to reach out.</p>
+        <form action="/action_page.php" target="_blank">
+            <input type="text" placeholder="Your Name" required name="Name">
+            <input type="text" placeholder="Your Email" required name="Email">
+            <textarea placeholder="Your Message" required></textarea>
+            <button type="submit">SEND MESSAGE</button>
+        </form>
+    </div>
+
+    <footer>
+        <p>&copy; 2024  AI-Transit . All rights reserved.</p>
+    </footer>
+</body>
+</html>

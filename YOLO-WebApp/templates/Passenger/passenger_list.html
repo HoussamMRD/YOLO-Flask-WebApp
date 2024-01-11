@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ViseoTransit Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            color: #333;
+            display: flex;
+        }
+
+        #sidebar {
+            width: 80px;
+            background: #343a40;
+            color: #adb5bd;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 20px;
+            transition: width 0.3s;
+            position: fixed;
+        }
+
+        #sidebar:hover {
+            width: 150px;
+        }
+
+        #sidebar .logo {
+            font-size: 18px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            color: #ffd700;
+            margin-bottom: 20px;
+        }
+
+        #sidebar ul {
+            list-style: none;
+            padding: 0;
+            width: 100%;
+        }
+
+        #sidebar ul li {
+            margin-bottom: 20px;
+        }
+
+        #sidebar ul li a {
+            color: #d1d8e0;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: color 0.3s ease-in-out;
+        }
+
+        #sidebar ul li a:hover {
+            color: #ffd700;
+        }
+
+        #content {
+            flex: 1;
+            padding: 30px;
+            min-height: 100vh;
+            transition: all 0.3s;
+            background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9));
+            margin-left: 80px;
+        }
+
+        .navbar {
+            background: #fff;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar .logo {
+            font-size: 24px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            color: #333;
+        }
+
+        .navbar .logout {
+            font-size: 18px;
+            color: #1a1a1a;
+            cursor: pointer;
+        }
+
+        .content-header {
+            margin-bottom: 20px;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 28px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background-color: #f0f0f0; /* Light Grey background */
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #444444; /* Green color */
+            color: white;
+        }
+
+        .actions {
+            display: flex;
+            align-items: center;
+        }
+
+        .actions a, .actions button {
+            margin-right: 10px;
+            text-decoration: none;
+            color: #28a745;
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            transition: color 0.3s ease-in-out;
+        }
+
+        .actions a:hover, .actions button:hover {
+            color: #218838;
+        }
+
+        .actions button {
+            background-color: #dc3545;
+            color: #fff;
+            padding: 8px 12px;
+            border-radius: 25px;
+            cursor: pointer;
+        }
+
+        .button {
+            background-color: #ffc107; /* Yellow color */
+            color: #333;
+            padding: 8px 12px;
+            text-decoration: none;
+            border-radius: 25px;
+            display: flex;
+            align-items: center;
+            transition: background-color 0.3s ease-in-out;
+            margin-bottom: 10px;
+            margin-left: 1200px;
+            margin-right: 90px;
+
+
+        }
+
+        .button:hover {
+            background-color: #ffca2c; /* Darker yellow on hover */
+        }
+
+        .button i {
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div id="sidebar">
+        <div class="logo">
+            <i class="fas fa-robot"></i>
+        </div>
+        <ul>
+            <li><a href="{{ url_for('passenger_list') }}"  title="Passengers"><i class="fas fa-users"></i></a></li>
+            <li><a href="#" title="Vehicles"><i class="fas fa-car"></i></a></li>
+            <li><a href="#" title="Cameras"><i class="fas fa-video"></i></a></li>
+            <!-- Add similar links for other pages -->
+        </ul>
+        <div class="logout" onclick="logout()" title="Logout">
+            <i class="fas fa-sign-out-alt"></i>
+        </div>
+    </div>
+
+    <div id="content">
+        <div class="navbar">
+            <div class="logo">
+                <i class="fas fa-robot"></i>
+               AI-Transit
+            </div>
+            <div class="logout" onclick="logout()">
+                <i class="fas fa-sign-out-alt"></i>
+            </div>
+        </div>
+
+        <div class="content-header">
+            <h2> <i class="fas fa-users"></i> Passengers List <i class="fas fa-users"></i> </h2>
+        </div>
+
+        <a href="{{ url_for('add_passenger') }}" class="button"><i class="fas fa-plus"></i>Add Passenger</a>
+
+        <table>
+            <thead>
+                <tr>
+                    <th><i class="fas fa-calendar"></i> Date & Time</th>
+                    <th><i class="fas fa-users"></i> Total Passengers</th>
+                    <th> <i class="fas fa-cog"></i> Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for passenger in passengers %}
+                    <tr>
+                        <td>{{ passenger.datetime }}</td>
+                        <td>{{ passenger.total_passengers }}</td>
+                        <td class="actions">
+                            <a href="{{ url_for('edit_passenger', id=passenger.id) }}" title="View"><i class="fas fa-list"></i></a>
+                            <a href="{{ url_for('edit_passenger', id=passenger.id) }}" title="Edit"><i class="fas fa-edit"></i></a>
+                            <form method="post" action="{{ url_for('delete_passenger', id=passenger.id) }}" style="display: inline;">
+    <button type="submit" onclick="return confirm('Are you sure?')" title="Delete"><i class="fas fa-trash"></i></button>
+</form>
+
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Add your JavaScript libraries or script tags here -->
+    <script>
+        function logout() {
+            // Implement your logout logic here
+            window.location.href = '/logout';
+        }
+    </script>
+</body>
+</html>

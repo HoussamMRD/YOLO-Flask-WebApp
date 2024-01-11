@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Web-cam Experience</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha384-lfmq5GxT8CHMOgiqI5vKs7EN5FHC5a/7m1cOVxDU+XZ+8FfMcXbwMJsPY2NEaNMl" crossorigin="anonymous">
+
+    <style>
+        body {
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #888;
+            text-align: center;
+        }
+
+        header {
+            background-color: #666;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header .logo {
+            display: flex;
+            align-items: center;
+            font-size: 24px;
+        }
+
+        header .logo i {
+            margin-right: 10px;
+            font-size: 32px;
+            color: #3498db;
+        }
+
+        header nav a {
+            text-decoration: none;
+            color: #fff;
+            margin-left: 20px;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        header nav a.active {
+            font-weight: bold;
+            color: #3498db;
+        }
+
+        header nav a i {
+            margin-right: 8px;
+            font-size: 20px;
+            color: #3498db;
+        }
+
+        header.feature-box.top {
+            background-color: #888;
+            height: 50px;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 2px solid #2980b9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        header.feature-box.second {
+            background-color: #888;
+            height: 50px;
+            text-align: center;
+            margin-top: -25px;
+            line-height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .features {
+            width: 900px;
+            height: 700px;
+            border-radius: 35px;
+            object-fit: contain;
+            margin: 20px auto;
+        }
+
+        section.col-sm {
+            width: 1000px;
+            height: 650px;
+            border-radius: 35px;
+            object-fit: contain;
+            margin: 40px auto;
+            background-color: #fff;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+            border-radius: 35px;
+            object-fit: cover;
+        }
+
+        .new {
+            margin: 0;
+            padding: 10px;
+            background-color: #3498db;
+            text-align: center;
+            border-radius: 0 0 35px 35px;
+        }
+
+        .icon {
+            font-size: 24px;
+            margin-right: 8px;
+            color: #ecf0f1;
+        }
+
+        footer {
+            background-color: #666;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        footer p {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div class="logo">
+        <i class="fas fa-robot"></i>
+        ViseoTransit
+    </div>
+    <nav>
+        <a href="/FrontPage" class="active"><i class="fas fa-video icon"></i> Video</a>
+        <a href="/webcam"><i class="fas fa-video icon"></i> Live Webcam</a>
+    </nav>
+</header>
+
+<header class="feature-box top">
+    <h1><i class="icon fas fa-video"></i><strong> </strong></h1>
+</header>
+<header class="feature-box second">
+     <h1><i class="icon fas fa-heart"></i><strong>Experience the Magic WEB-CAM </strong></h1>
+</header>
+
+<section class="col-sm">
+    <img src="{{ url_for('webapp') }}" alt="WEB-CAM">
+</section>
+
+<footer>
+    <p>&copy; 2024  AI-Transit . All rights reserved.</p>
+</footer>
+
+</body>
+</html>
